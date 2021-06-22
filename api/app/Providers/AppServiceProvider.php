@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Project;
+use App\Models\Section;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Relation::$morphMap = [
+            'project' => Project::class,
+            'section' => Section::class
+        ];
     }
 }
