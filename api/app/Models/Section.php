@@ -19,6 +19,6 @@ class Section extends Model
 
     public function tasks(): MorphMany
     {
-        return $this->morphMany(Task::class, 'taskable');
+        return $this->morphMany(Task::class, 'taskable')->parent();
     }
 }
