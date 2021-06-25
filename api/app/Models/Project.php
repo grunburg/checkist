@@ -13,6 +13,8 @@ class Project extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $with = ['sections'];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -25,6 +27,6 @@ class Project extends Model
 
     public function tasks(): MorphMany
     {
-        return $this->morphMany(Task::class, 'taskable');
+        return $this->morphMany(Task::class, 'taskable')->parent();
     }
 }
