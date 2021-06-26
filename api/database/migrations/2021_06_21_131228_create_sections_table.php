@@ -17,7 +17,7 @@ class CreateSectionsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
-            $table->text('name');
+            $table->string('title');
             $table->softDeletes();
             $table->timestamps();
         });

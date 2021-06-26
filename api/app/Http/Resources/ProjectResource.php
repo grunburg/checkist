@@ -10,7 +10,8 @@ class ProjectResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'user' => $this->user->id,
+            'title' => $this->title,
             'tasks' => TaskResource::collection($this->tasks->load('subtasks')),
             'sections' => SectionResource::collection($this->sections),
             'updated_at' => $this->updated_at,
